@@ -1,6 +1,5 @@
-# Parceiros do Amanhã — Desafios ADS
-
-Repositório com os desafios práticos da disciplina de Análise e Desenvolvimento de Sistemas.
+# parceiros-do-amanha
+Projeto acadêmico de site de ONG desenvolvido em HTML5.
 
 ## Desafios
 - [Desafio 01 — HTML puro](./desafio-01-html-puro)

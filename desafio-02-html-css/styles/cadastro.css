@@ -87,6 +87,27 @@ main > p {
     color: var(--texto-secundario);
 }
 
+.aviso-cadastro {
+    padding: var(--espaco-medio);
+    margin-bottom: var(--espaco-medio);
+    border-left: 4px solid var(--amarelo);
+}
+
+#informacoes-cadastro {
+    width: min(90%, 28rem);
+    padding: var(--espaco-medio);
+    border: 0;
+    border-radius: 0.5rem;
+}
+
+#informacoes-cadastro::backdrop {
+    background-color: rgb(0 0 0 / 60%);
+}
+
+#informacoes-cadastro button {
+    margin-top: var(--espaco-medio);
+}
+
 #formulario-cadastro {
     width: 100%;
     margin: var(--espaco-extra) auto;
@@ -164,6 +185,33 @@ footer {
 footer p {
     margin: 0;
     font-size: var(--texto-pequeno);
+}
+.mensagem-erro {
+    display: none;
+    margin-top: var(--espaco-pequeno);
+    padding-left: var(--espaco-pequeno);
+    color: var(--texto);
+    border-left: 3px solid var(--laranja);
+    font-size: var(--texto-pequeno);
+}
+
+input:required:user-valid,
+select:required:user-valid,
+textarea:required:user-valid {
+    border: 2px solid var(--verde);
+    outline-color: var(--verde);
+}
+
+input:user-invalid + .mensagem-erro,
+select:user-invalid + .mensagem-erro,
+textarea:user-invalid + .mensagem-erro {
+    display: block;
+    border: 2px solid var(--laranja);
+    outline-color: var(--laranja);
+}
+
+button:active {
+    transform: translateY(1px);
 }
 
 @media (max-width: 1200px) {

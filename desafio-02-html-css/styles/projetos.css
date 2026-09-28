@@ -80,10 +80,19 @@ main {
 }
 
 #projetos > article {
+    display: flex;
+    flex-direction: column;
     grid-column: span 4;
     padding: var(--espaco-medio);
     background-color: var(--fundo);
     border: 1px solid var(--borda);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#projetos > article:hover,
+#projetos > article:focus-within {
+    border-color: var(--verde);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
 #projetos article h3 { margin: 0 0 var(--espaco-medio) }
@@ -93,12 +102,31 @@ main {
 }
 
 #projetos article ul {
-    margin: 0;
+    margin-bottom: var(--espaco-grande);
     padding-left: var(--espaco-grande);
 }
 
 #projetos article li + li {
     margin-top: var(--espaco-pequeno);
+}
+
+#projetos article a {
+    display: inline-block;
+    align-self: flex-start;
+    margin-top: auto;
+    padding: var(--espaco-pequeno) var(--espaco-medio);
+    color: var(--branco);
+    background-color: var(--verde);
+    text-decoration: none;
+}
+
+#projetos article a:hover {
+    background-color: var(--azul-principal);
+}
+
+#projetos article a:focus-visible {
+    outline: 2px solid var(--azul-principal);
+    outline-offset: 3px;
 }
 
 #voluntariado > a,

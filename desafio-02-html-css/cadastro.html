@@ -50,6 +50,26 @@
             Os campos identificados como obrigatórios devem ser preenchidos.
         </p>
 
+    <div class="aviso-cadastro">
+        <strong>Antes de começar:</strong>
+        confira seus dados de contato para que a ONG possa falar com você.
+    </div>
+
+    <button type="button" commandfor="informacoes-cadastro" command="show-modal">
+    Como funciona o cadastro?
+    </button>
+
+    <dialog id="informacoes-cadastro" aria-labelledby="titulo-modal">
+    <h2 id="titulo-modal">Como funciona o cadastro?</h2>
+        <p>
+            Preencha seus dados e indique sua área de interesse e disponibilidade.
+            A equipe da ONG poderá usar essas informações para entrar em contato.
+        </p>
+    <button type="button" commandfor="informacoes-cadastro" command="close">
+        Fechar
+    </button>
+</dialog>
+
         <form id="formulario-cadastro">
             <fieldset>
                 <legend>Dados pessoais</legend>
@@ -62,8 +82,12 @@
                         name="nome"
                         minlength="3"
                         maxlength="100"
+                        aria-describedby="erro-nome"
                         required
                     >
+                    <span id="erro-nome" class="mensagem-erro" role="alert">
+                        Por favor, informe um nome completo válido.
+                    </span>
                 </p>
 
                 <p>
@@ -72,8 +96,12 @@
                         type="email"
                         id="email"
                         name="email"
+                        aria-describedby="erro-email"
                         required
                     >
+                    <span id="erro-email" class="mensagem-erro" role="alert">
+                        Por favor, informe um e-mail válido.
+                    </span>
                 </p>
 
                 <p>
@@ -84,8 +112,12 @@
                         type="date"
                         id="nascimento"
                         name="nascimento"
+                        aria-describedby="erro-nascimento"
                         required
                     >
+                    <span id="erro-nascimento" class="mensagem-erro" role="alert">
+                        Por favor, informe uma data de nascimento válida.
+                    </span>
                 </p>
 
                 <p>
@@ -96,8 +128,12 @@
                         name="cpf"
                         maxlength="14"
                         pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}"
+                        aria-describedby="erro-cpf"
                         required
                     >
+                    <span id="erro-cpf" class="mensagem-erro" role="alert">
+                        Por favor, informe um CPF válido.
+                    </span>
                 </p>
 
                 <p>
@@ -110,8 +146,12 @@
                         name="telefone"
                         maxlength="13"
                         pattern="[0-9]{2} [0-9]{4,5}-[0-9]{4}"
+                        aria-describedby="erro-telefone"
                         required
                     >
+                    <span id="erro-telefone" class="mensagem-erro" role="alert">
+                        Por favor, informe um telefone válido.
+                    </span>
                 </p>
             </fieldset>
 
@@ -127,8 +167,12 @@
                         inputmode="numeric"
                         maxlength="9"
                         pattern="[0-9]{5}-[0-9]{3}"
+                        aria-describedby="erro-cep"
                         required
                     >
+                    <span id="erro-cep" class="mensagem-erro" role="alert">
+                        Por favor, informe um CEP válido.
+                    </span>
                 </p>
 
                 <p>
@@ -151,8 +195,12 @@
                         type="text"
                         id="numero"
                         name="numero"
+                        aria-describedby="erro-numero"
                         required
                     >
+                    <span id="erro-numero" class="mensagem-erro" role="alert">
+                        Por favor, informe um número válido.
+                    </span>
                 </p>
 
                 <p>
@@ -170,8 +218,12 @@
                         type="text"
                         id="bairro"
                         name="bairro"
+                        aria-describedby="erro-bairro"
                         required
                     >
+                    <span id="erro-bairro" class="mensagem-erro" role="alert">
+                        Por favor, informe um bairro válido.
+                    </span>
                 </p>
 
                 <p>
@@ -180,8 +232,12 @@
                         type="text"
                         id="cidade"
                         name="cidade"
+                        aria-describedby="erro-cidade"
                         required
                     >
+                    <span id="erro-cidade" class="mensagem-erro" role="alert">
+                        Por favor, informe uma cidade válida.
+                    </span>
                 </p>
 
                 <p>
@@ -189,6 +245,7 @@
                     <select
                         id="estado"
                         name="estado"
+                        aria-describedby="erro-estado"
                         required
                     >
                         <option value="">Selecione</option>
@@ -220,6 +277,9 @@
                         <option value="SE">Sergipe</option>
                         <option value="TO">Tocantins</option>
                     </select>
+                    <span id="erro-estado" class="mensagem-erro" role="alert">
+                        Por favor, informe um estado válido.
+                    </span>
                 </p>
             </fieldset>
 
@@ -230,7 +290,7 @@
                     <label for="area">
                         Área de interesse (obrigatório)
                     </label><br>
-                    <select id="area" name="area" required>
+                    <select id="area" name="area" aria-describedby="erro-area" required>
                         <option value="">Selecione</option>
                         <option value="educacao">Apoio à aprendizagem</option>
                         <option value="cultura">Oficinas culturais</option>
@@ -245,6 +305,9 @@
                             Organização de campanhas
                         </option>
                     </select>
+                    <span id="erro-area" class="mensagem-erro" role="alert">
+                        Por favor, informe uma área de interesse válida.
+                    </span>
                 </p>
 
                 <p>
@@ -258,8 +321,12 @@
                         cols="30"
                         maxlength="500"
                         placeholder="Informe dias e horários disponíveis."
+                        aria-describedby="erro-disponibilidade"
                         required
                     ></textarea>
+                    <span id="erro-disponibilidade" class="mensagem-erro" role="alert">
+                        Por favor, informe uma disponibilidade válida.
+                    </span>
                 </p>
 
                 <p>

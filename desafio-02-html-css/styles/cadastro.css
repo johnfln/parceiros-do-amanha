@@ -47,7 +47,7 @@ header {
 
 header p {
     margin: 0;
-    font-size: var(--texto-principal);
+    font-size: var(--texto-destaque);
 }
 
 header nav ul {

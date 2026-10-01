@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <link id="estilo-pagina" rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/validacao.css">
+    <!-- Estilos compartilhados: permanecem ativos nas três telas. -->
+    <link rel="stylesheet" href="../css/acessibilidade.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta
@@ -16,9 +18,12 @@
 </head>
 
 <body>
+    <a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo</a>
 
     <header>
         <p><strong>Parceiros do Amanhã</strong></p>
+
+        <button id="alternar-contraste" type="button" aria-pressed="false">Alto contraste</button>
 
         <nav aria-label="Menu principal">
             <ul class="menu-desktop">
@@ -40,12 +45,12 @@
                 </nav>
     </header>
 
-    <main id="conteudo-principal">
+    <main id="conteudo-principal" tabindex="-1">
     </main>
     <noscript>Ative o JavaScript para navegar pelas telas deste projeto.</noscript>
 
 <footer id="contato">
-    <h2>Contato</h2>
+    <h2 id="titulo-contato" tabindex="-1">Contato</h2>
 
     <address>
         E-mail: contato@parceirosdoamanha.com.br<br>

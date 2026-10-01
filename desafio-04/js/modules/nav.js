@@ -12,6 +12,13 @@ export function startNavigation() {
     const stylesheet = document.getElementById('estilo-pagina');
     let currentScreen = null;
 
+    // Ao navegar para o rodapé, o teclado deve acompanhar a rolagem.
+    function focusContact() {
+        const heading = document.getElementById('titulo-contato');
+        heading.focus({ preventScroll: true });
+        heading.scrollIntoView();
+    }
+
     function renderScreen() {
         let destination = window.location.hash.slice(1);
         if (destination === '') {
@@ -19,7 +26,7 @@ export function startNavigation() {
         }
 
         if (destination === 'contato' && currentScreen !== null) {
-            document.getElementById('contato').scrollIntoView();
+            focusContact();
             return;
         }
 
@@ -63,7 +70,7 @@ export function startNavigation() {
         }
 
         if (destination === 'contato') {
-            document.getElementById('contato').scrollIntoView();
+            focusContact();
         } else {
             const heading = content.querySelector('h1');
             heading.setAttribute('tabindex', '-1');
@@ -71,6 +78,13 @@ export function startNavigation() {
             window.scrollTo(0, 0);
         }
     }
+
+    document.querySelector('header nav').addEventListener('click', function (event) {
+        const link = event.target.closest('a');
+        if (link && link.getAttribute('href') === window.location.hash) {
+            renderScreen();
+        }
+    });
 
     window.addEventListener('hashchange', renderScreen);
     renderScreen();

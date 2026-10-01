@@ -39,23 +39,23 @@ function getFieldError(field) {
     }
 
     if (field.id === 'nascimento') {
-    const birthDate = dayjs(value, 'YYYY-MM-DD', true);
-    const today = dayjs();
+        const birthDate = dayjs(value, 'YYYY-MM-DD', true);
+        const today = dayjs();
 
-    if (!birthDate.isValid()) {
-        return 'Informe uma data de nascimento válida.';
+        if (!birthDate.isValid()) {
+            return 'Informe uma data de nascimento válida.';
+        }
+
+        if (birthDate.isAfter(today, 'day')) {
+            return 'A data de nascimento não pode estar no futuro.';
+        }
+
+        const age = today.diff(birthDate, 'year');
+
+        if (age < 18) {
+            return 'É necessário ter pelo menos 18 anos para realizar o cadastro.';
+        }
     }
-
-    if (birthDate.isAfter(today, 'day')) {
-        return 'A data de nascimento não pode estar no futuro.';
-    }
-
-    const age = today.diff(birthDate, 'year');
-
-    if (age < 18) {
-        return 'É necessário ter pelo menos 18 anos para realizar o cadastro.';
-    }
-}
 
     if (!field.validity.valid) {
         return 'Confira o formato e o preenchimento deste campo.';
@@ -114,7 +114,8 @@ function updateField(field) {
     const messageId = `erro-${field.id}`;
     const message = document.getElementById(messageId);
 
-    field.setAttribute('aria-describedby', messageId);
+    // As instruções e o erro já estão associados no template.
+    // Não sobrescrevemos aria-describedby para preservar os dois textos.
     field.setAttribute('aria-invalid', String(error !== ''));
     field.classList.toggle('campo-invalido', error !== '');
     field.classList.toggle('campo-valido', error === '' && field.value.trim() !== '');

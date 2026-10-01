@@ -1,4 +1,3 @@
-// Mantemos a chave anterior para recuperar os rascunhos já preenchidos.
 const draftKey = 'ong-rascunho-cadastro';
 
 export function saveDraft(form) {
@@ -9,7 +8,6 @@ export function saveDraft(form) {
         data[field.id] = field.value;
     });
 
-    // stringify transforma o objeto em texto para o localStorage.
     try {
         localStorage.setItem(draftKey, JSON.stringify(data));
     } catch (error) {
@@ -23,7 +21,6 @@ export function restoreDraft() {
         return;
     }
 
-    // Um JSON inválido ou armazenamento indisponível não bloqueia a navegação.
     try {
         const savedText = localStorage.getItem(draftKey);
         if (savedText === null) {

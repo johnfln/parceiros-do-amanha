@@ -2,7 +2,6 @@ import { saveDraft } from './storage.js';
 
 dayjs.extend(window.dayjs_plugin_customParseFormat);
 
-// Retorna uma mensagem quando existe erro; uma string vazia significa válido.
 function getFieldError(field) {
     const value = field.value.trim();
 
@@ -11,7 +10,7 @@ function getFieldError(field) {
     }
     if (value === '') {
         return '';
-    } // Campos opcionais podem ficar vazios.
+    }
 
     const minimum = field.getAttribute('minlength');
     const maximum = field.getAttribute('maxlength');
@@ -26,7 +25,6 @@ function getFieldError(field) {
         return 'Informe um e-mail válido, como nome@dominio.com.';
     }
 
-    // As expressões regulares verificam o formato, não a existência dos dados.
     if (field.id === 'cpf' && !/^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test(value)) {
         return 'Use o formato 000.000.000-00 para o CPF.';
     }
@@ -59,7 +57,6 @@ function getFieldError(field) {
     }
 }
 
-    // Preserva as demais restrições definidas no HTML.
     if (!field.validity.valid) {
         return 'Confira o formato e o preenchimento deste campo.';
     }
@@ -67,7 +64,6 @@ function getFieldError(field) {
 }
 
 function formatPhone(value) {
-    // Retira tudo que não é dígito e aceita no máximo DDD + 9 dígitos.
     const digits = value.replace(/\D/g, '').slice(0, 11);
     if (digits.length <= 2) {
         return digits;
@@ -79,7 +75,6 @@ function formatPhone(value) {
         return `${areaCode} ${phoneNumber}`;
     }
 
-    // 8 dígitos: xxxx-xxxx; 9 dígitos: xxxxx-xxxx.
     let hyphenPosition = 4;
     if (phoneNumber.length === 9) {
         hyphenPosition = 5;
@@ -158,7 +153,6 @@ export function startValidation(content) {
         }
         document.getElementById('feedback-cadastro').textContent = '';
 
-        // Primeiro formatamos, depois salvamos o preenchimento.
         saveDraft(field.closest('#formulario-cadastro'));
     });
 

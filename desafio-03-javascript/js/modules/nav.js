@@ -18,7 +18,6 @@ export function startNavigation() {
             destination = 'inicio';
         }
 
-        // Contato é o rodapé: conserva a tela que já está aberta.
         if (destination === 'contato' && currentScreen !== null) {
             document.getElementById('contato').scrollIntoView();
             return;
@@ -29,7 +28,6 @@ export function startNavigation() {
             screenName = 'inicio';
         }
 
-        // Só consultamos o objeto depois de conferir os nomes aceitos.
         let route = null;
         if (screenName === 'inicio' || screenName === 'projetos' || screenName === 'cadastro') {
             route = routes[screenName];
@@ -46,7 +44,6 @@ export function startNavigation() {
                 document.title = 'Tela não encontrada | Parceiros do Amanhã';
             }
 
-            // A restauração acontece depois de criar os campos no DOM.
             restoreDraft();
             currentScreen = screenName;
         }

@@ -1,4 +1,3 @@
-// Os dados ficam separados da marcação do cartão.
 const projects = [
     {
         "title": "Aprender e Descobrir",
@@ -29,7 +28,6 @@ const projects = [
     }
 ];
 
-// A mesma função gera um cartão para cada objeto do array.
 function createProjectCard(project) {
     const activityItems = project.activities.map(function (activity) {
         return `<li>${activity}</li>`;
@@ -48,7 +46,6 @@ function createProjectCard(project) {
     `;
 }
 
-// Cada função retorna o HTML que será colocado dentro do <main>.
 export function createHomeScreen() {
     return `<h1>Conheça a Parceiros do Amanhã</h1>
 

@@ -41,7 +41,7 @@ function createProjectCard(project) {
             <ul>
                 ${activitiesHtml}
             </ul>
-            <a href="#cadastro" aria-label="Participar do ${project.title}">Quero participar</a>
+            <a href="#cadastro" aria-label="Quero participar: ${project.title}">Quero participar</a>
         </article>
     `;
 }
@@ -219,6 +219,7 @@ export function createRegistrationScreen() {
 
         <p>
             Os campos identificados como obrigatórios devem ser preenchidos.
+            Use dados fictícios: este formulário é uma demonstração.
         </p>
 
     <div class="aviso-cadastro">
@@ -234,7 +235,8 @@ export function createRegistrationScreen() {
     <h2 id="titulo-modal">Como funciona o cadastro?</h2>
         <p>
             Preencha seus dados e indique sua área de interesse e disponibilidade.
-            A equipe da ONG poderá usar essas informações para entrar em contato.
+            Neste projeto acadêmico, o preenchimento é validado e salvo como rascunho
+            neste navegador. Nenhum cadastro é enviado à ONG.
         </p>
     <button type="button" data-modal="fechar">
         Fechar
@@ -251,14 +253,13 @@ export function createRegistrationScreen() {
                         type="text"
                         id="nome"
                         name="nome"
+                        autocomplete="name"
                         minlength="3"
                         maxlength="100"
                         aria-describedby="erro-nome"
                         required
                     >
-                    <span id="erro-nome" class="mensagem-erro" role="alert">
-                        Por favor, informe um nome completo válido.
-                    </span>
+                    <span id="erro-nome" class="mensagem-erro"></span>
                 </p>
 
                 <p>
@@ -267,12 +268,11 @@ export function createRegistrationScreen() {
                         type="email"
                         id="email"
                         name="email"
+                        autocomplete="email"
                         aria-describedby="erro-email"
                         required
                     >
-                    <span id="erro-email" class="mensagem-erro" role="alert">
-                        Por favor, informe um e-mail válido.
-                    </span>
+                    <span id="erro-email" class="mensagem-erro"></span>
                 </p>
 
                 <p>
@@ -283,12 +283,12 @@ export function createRegistrationScreen() {
                         type="date"
                         id="nascimento"
                         name="nascimento"
-                        aria-describedby="erro-nascimento"
+                        autocomplete="bday"
+                        aria-describedby="ajuda-nascimento erro-nascimento"
                         required
                     >
-                    <span id="erro-nascimento" class="mensagem-erro" role="alert">
-                        Por favor, informe uma data de nascimento válida.
-                    </span>
+                    <span id="ajuda-nascimento" class="ajuda-campo">É necessário ter pelo menos 18 anos.</span>
+                    <span id="erro-nascimento" class="mensagem-erro"></span>
                 </p>
 
                 <p>
@@ -297,14 +297,14 @@ export function createRegistrationScreen() {
                         type="text"
                         id="cpf"
                         name="cpf"
+                        inputmode="numeric"
                         maxlength="14"
                         pattern="[0-9]{3}\\.[0-9]{3}\\.[0-9]{3}-[0-9]{2}"
-                        aria-describedby="erro-cpf"
+                        aria-describedby="ajuda-cpf erro-cpf"
                         required
                     >
-                    <span id="erro-cpf" class="mensagem-erro" role="alert">
-                        Por favor, informe um CPF válido.
-                    </span>
+                    <span id="ajuda-cpf" class="ajuda-campo">Use o formato 000.000.000-00.</span>
+                    <span id="erro-cpf" class="mensagem-erro"></span>
                 </p>
 
                 <p>
@@ -315,14 +315,14 @@ export function createRegistrationScreen() {
                         type="tel"
                         id="telefone"
                         name="telefone"
+                        autocomplete="tel"
                         maxlength="13"
                         pattern="[0-9]{2} [0-9]{4,5}-[0-9]{4}"
-                        aria-describedby="erro-telefone"
+                        aria-describedby="ajuda-telefone erro-telefone"
                         required
                     >
-                    <span id="erro-telefone" class="mensagem-erro" role="alert">
-                        Por favor, informe um telefone válido.
-                    </span>
+                    <span id="ajuda-telefone" class="ajuda-campo">Informe DDD e telefone: 48 99999-9999 ou 48 3333-3333.</span>
+                    <span id="erro-telefone" class="mensagem-erro"></span>
                 </p>
             </fieldset>
 
@@ -335,15 +335,15 @@ export function createRegistrationScreen() {
                         type="text"
                         id="cep"
                         name="cep"
+                        autocomplete="postal-code"
                         inputmode="numeric"
                         maxlength="9"
                         pattern="[0-9]{5}-[0-9]{3}"
-                        aria-describedby="erro-cep"
+                        aria-describedby="ajuda-cep erro-cep"
                         required
                     >
-                    <span id="erro-cep" class="mensagem-erro" role="alert">
-                        Por favor, informe um CEP válido.
-                    </span>
+                    <span id="ajuda-cep" class="ajuda-campo">Use o formato 00000-000.</span>
+                    <span id="erro-cep" class="mensagem-erro"></span>
                 </p>
 
                 <p>
@@ -354,9 +354,10 @@ export function createRegistrationScreen() {
                         type="text"
                         id="endereco"
                         name="endereco"
+                        autocomplete="address-line1"
                         required
                      aria-describedby="erro-endereco">
-                    <span id="erro-endereco" class="mensagem-erro" role="alert"></span>
+                    <span id="erro-endereco" class="mensagem-erro"></span>
                 </p>
 
                 <p>
@@ -370,9 +371,7 @@ export function createRegistrationScreen() {
                         aria-describedby="erro-numero"
                         required
                     >
-                    <span id="erro-numero" class="mensagem-erro" role="alert">
-                        Por favor, informe um número válido.
-                    </span>
+                    <span id="erro-numero" class="mensagem-erro"></span>
                 </p>
 
                 <p>
@@ -381,8 +380,9 @@ export function createRegistrationScreen() {
                         type="text"
                         id="complemento"
                         name="complemento"
+                        autocomplete="address-line2"
                      aria-describedby="erro-complemento">
-                    <span id="erro-complemento" class="mensagem-erro" role="alert"></span>
+                    <span id="erro-complemento" class="mensagem-erro"></span>
                 </p>
 
                 <p>
@@ -394,9 +394,7 @@ export function createRegistrationScreen() {
                         aria-describedby="erro-bairro"
                         required
                     >
-                    <span id="erro-bairro" class="mensagem-erro" role="alert">
-                        Por favor, informe um bairro válido.
-                    </span>
+                    <span id="erro-bairro" class="mensagem-erro"></span>
                 </p>
 
                 <p>
@@ -405,12 +403,11 @@ export function createRegistrationScreen() {
                         type="text"
                         id="cidade"
                         name="cidade"
+                        autocomplete="address-level2"
                         aria-describedby="erro-cidade"
                         required
                     >
-                    <span id="erro-cidade" class="mensagem-erro" role="alert">
-                        Por favor, informe uma cidade válida.
-                    </span>
+                    <span id="erro-cidade" class="mensagem-erro"></span>
                 </p>
 
                 <p>
@@ -418,6 +415,7 @@ export function createRegistrationScreen() {
                     <select
                         id="estado"
                         name="estado"
+                        autocomplete="address-level1"
                         aria-describedby="erro-estado"
                         required
                     >
@@ -450,9 +448,7 @@ export function createRegistrationScreen() {
                         <option value="SE">Sergipe</option>
                         <option value="TO">Tocantins</option>
                     </select>
-                    <span id="erro-estado" class="mensagem-erro" role="alert">
-                        Por favor, informe um estado válido.
-                    </span>
+                    <span id="erro-estado" class="mensagem-erro"></span>
                 </p>
             </fieldset>
 
@@ -478,9 +474,7 @@ export function createRegistrationScreen() {
                             Organização de campanhas
                         </option>
                     </select>
-                    <span id="erro-area" class="mensagem-erro" role="alert">
-                        Por favor, informe uma área de interesse válida.
-                    </span>
+                    <span id="erro-area" class="mensagem-erro"></span>
                 </p>
 
                 <p>
@@ -494,12 +488,11 @@ export function createRegistrationScreen() {
                         cols="30"
                         maxlength="500"
                         placeholder="Informe dias e horários disponíveis."
-                        aria-describedby="erro-disponibilidade"
+                        aria-describedby="ajuda-disponibilidade erro-disponibilidade"
                         required
                     ></textarea>
-                    <span id="erro-disponibilidade" class="mensagem-erro" role="alert">
-                        Por favor, informe uma disponibilidade válida.
-                    </span>
+                    <span id="ajuda-disponibilidade" class="ajuda-campo">Informe dias e horários disponíveis.</span>
+                    <span id="erro-disponibilidade" class="mensagem-erro"></span>
                 </p>
 
                 <p>
@@ -513,7 +506,7 @@ export function createRegistrationScreen() {
                         cols="30"
                         maxlength="1000"
                     ></textarea>
-                    <span id="erro-habilidades" class="mensagem-erro" role="alert"></span>
+                    <span id="erro-habilidades" class="mensagem-erro"></span>
                 </p>
             </fieldset>
 
@@ -522,5 +515,5 @@ export function createRegistrationScreen() {
             </p>
 
         </form>
-<p id="feedback-cadastro" role="status"></p>`;
+<p id="feedback-cadastro" role="status" aria-atomic="true"></p>`;
 }

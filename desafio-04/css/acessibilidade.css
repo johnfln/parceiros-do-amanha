@@ -1,0 +1,176 @@
+/* Esta folha é carregada depois dos estilos das telas. */
+body {
+    overflow-wrap: anywhere;
+}
+
+header {
+    flex-wrap: wrap;
+}
+
+h1 {
+    color: var(--azul-principal);
+    font-size: var(--titulo-principal);
+    line-height: 1.2;
+}
+
+.pular-conteudo {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 100;
+    padding: 0.75rem;
+    color: #ffffff;
+    background: #000000;
+    transform: translateY(-200%);
+}
+
+.pular-conteudo:focus {
+    transform: translateY(0);
+}
+
+/* Dois anéis tornam o foco visível sobre fundos claros e escuros. */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex="-1"]:focus-visible {
+    outline: 3px solid #000000 !important;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 3px #ffffff;
+}
+
+header nav a[aria-current="page"] {
+    color: var(--amarelo);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+#alternar-contraste {
+    padding: 0.5rem 0.75rem;
+    color: #ffffff;
+    background: #2c3e50;
+    border: 2px solid #ffffff;
+    font: inherit;
+    cursor: pointer;
+}
+
+/* Bordas mais escuras identificam os controles no fundo branco. */
+#formulario-cadastro input,
+#formulario-cadastro select,
+#formulario-cadastro textarea {
+    border-color: #5f6b73;
+}
+
+#formulario-cadastro .campo-invalido {
+    border-color: #a33b00;
+}
+
+#formulario-cadastro .campo-valido {
+    border-color: #2e7d5b;
+}
+
+#formulario-cadastro .mensagem-erro.visivel {
+    border-left-color: #a33b00;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #5f6b73;
+    opacity: 1;
+}
+
+.ajuda-campo {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+}
+
+/* As variáveis são sobrescritas no body, sem trocar os arquivos das telas. */
+body.alto-contraste {
+    /* Ajusta também ícones e controles nativos, como o calendário. */
+    color-scheme: dark;
+    --azul-principal: #ffff00;
+    --verde: #ffff00;
+    --amarelo: #ffff00;
+    --laranja: #ffff00;
+    --texto: #ffffff;
+    --texto-secundario: #ffffff;
+    --fundo: #000000;
+    --branco: #000000;
+    --borda: #ffffff;
+    color: #ffffff;
+    background: #000000;
+}
+
+body.alto-contraste header,
+body.alto-contraste footer,
+body.alto-contraste .menu-mobile ul,
+body.alto-contraste section,
+body.alto-contraste fieldset,
+body.alto-contraste dialog {
+    color: #ffffff;
+    background: #000000;
+    border-color: #ffffff;
+}
+
+body.alto-contraste a,
+body.alto-contraste footer h2,
+body.alto-contraste #como-participar h2,
+body.alto-contraste .menu-mobile summary {
+    color: #ffff00;
+}
+
+body.alto-contraste #como-participar a,
+body.alto-contraste #projetos article a,
+body.alto-contraste #voluntariado > a,
+body.alto-contraste #doacoes > a,
+body.alto-contraste button {
+    color: #000000;
+    background: #ffff00;
+    border: 2px solid #ffff00;
+}
+
+body.alto-contraste #alternar-contraste {
+    color: #000000;
+    background: #ffff00;
+}
+
+body.alto-contraste #formulario-cadastro input,
+body.alto-contraste #formulario-cadastro select,
+body.alto-contraste #formulario-cadastro textarea {
+    color: #ffffff;
+    background: #000000;
+    border-color: #ffffff;
+}
+
+body.alto-contraste #formulario-cadastro .campo-invalido,
+body.alto-contraste #formulario-cadastro .campo-valido,
+body.alto-contraste #formulario-cadastro .mensagem-erro.visivel {
+    border-color: #ffff00;
+}
+
+body.alto-contraste input::placeholder,
+body.alto-contraste textarea::placeholder {
+    color: #ffffff;
+}
+
+@media (max-width: 992px) {
+    h1 { font-size: 2.25rem; }
+}
+
+@media (max-width: 768px) {
+    header p { flex-basis: 100%; }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 2rem; }
+    fieldset { padding: 1rem; min-width: 0; }
+    #projetos > article { min-width: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #projetos > article { transition: none; }
+    button:active { transform: none; }
+}

@@ -1,0 +1,262 @@
+{
+  "results": [
+    {
+      "width": 1280,
+      "high": false,
+      "route": "inicio",
+      "overflow": false,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "width": 1280,
+      "high": false,
+      "route": "projetos",
+      "overflow": false,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "width": 1280,
+      "high": false,
+      "route": "cadastro",
+      "overflow": false,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                "#disponibilidade"
+              ],
+              "reason": [
+                "Element's background color could not be determined because it's partially obscured by another element"
+              ]
+            },
+            {
+              "target": [
+                "#habilidades"
+              ],
+              "reason": [
+                "Element's background color could not be determined because it's partially obscured by another element"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "width": 1280,
+      "high": true,
+      "route": "inicio",
+      "overflow": false,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "width": 1280,
+      "high": true,
+      "route": "projetos",
+      "overflow": false,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "width": 1280,
+      "high": true,
+      "route": "cadastro",
+      "overflow": false,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                "#disponibilidade"
+              ],
+              "reason": [
+                "Element's background color could not be determined because it's partially obscured by another element"
+              ]
+            },
+            {
+              "target": [
+                "#habilidades"
+              ],
+              "reason": [
+                "Element's background color could not be determined because it's partially obscured by another element"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "high": false,
+      "route": "inicio",
+      "overflow": false,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                "span"
+              ],
+              "reason": [
+                "Element content contains only non-text characters"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "high": false,
+      "route": "projetos",
+      "overflow": false,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                "span"
+              ],
+              "reason": [
+                "Element content contains only non-text characters"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "high": false,
+      "route": "cadastro",
+      "overflow": false,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                "span[aria-hidden=\"true\"]"
+              ],
+              "reason": [
+                "Element content contains only non-text characters"
+              ]
+            },
+            {
+              "target": [
+                "#disponibilidade"
+              ],
+              "reason": [
+                "Element's background color could not be determined because it's partially obscured by another element"
+              ]
+            },
+            {
+              "target": [
+                "#habilidades"
+              ],
+              "reason": [
+                "Element's background color could not be determined because it's partially obscured by another element"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "high": true,
+      "route": "inicio",
+      "overflow": false,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                "span"
+              ],
+              "reason": [
+                "Element content contains only non-text characters"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "high": true,
+      "route": "projetos",
+      "overflow": false,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                "span"
+              ],
+              "reason": [
+                "Element content contains only non-text characters"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "high": true,
+      "route": "cadastro",
+      "overflow": false,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                "span[aria-hidden=\"true\"]"
+              ],
+              "reason": [
+                "Element content contains only non-text characters"
+              ]
+            },
+            {
+              "target": [
+                "#disponibilidade"
+              ],
+              "reason": [
+                "Element's background color could not be determined because it's partially obscured by another element"
+              ]
+            },
+            {
+              "target": [
+                "#habilidades"
+              ],
+              "reason": [
+                "Element's background color could not be determined because it's partially obscured by another element"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "functional": "passed"
+}

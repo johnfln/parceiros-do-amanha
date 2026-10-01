@@ -1,8 +1,10 @@
 import { startNavigation } from './modules/nav.js';
 import { startValidation } from './modules/validation.js';
+import { startAccessibility } from './modules/accessibility.js';
 
 const content = document.getElementById('conteudo-principal');
 
+startAccessibility();
 startNavigation();
 startValidation(content);
 

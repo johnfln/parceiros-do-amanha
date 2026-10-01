@@ -1,27 +1,22 @@
-import { iniciarNavegacao } from './modules/navegacao.js';
+import { startNavigation } from './modules/nav.js';
+import { startValidation } from './modules/validation.js';
 
-iniciarNavegacao();
+const content = document.getElementById('conteudo-principal');
 
-// Delegação de eventos: o <main> permanece no DOM quando as telas mudam.
-const conteudo = document.getElementById('conteudo-principal');
+startNavigation();
+startValidation(content);
 
-conteudo.addEventListener('click', evento => {
-    const botao = evento.target.closest('button[data-modal]');
-    if (!botao) return;
+// O main permanece na página, mesmo quando seu conteúdo é substituído.
+content.addEventListener('click', function (event) {
+    const button = event.target.closest('button[data-modal]');
+    if (!button) {
+        return;
+    }
 
     const modal = document.getElementById('informacoes-cadastro');
-    if (botao.dataset.modal === 'abrir') {
+    if (button.dataset.modal === 'abrir') {
         modal.showModal();
     } else {
         modal.close();
     }
-});
-
-// Nesta primeira etapa, o formulário usa a validação nativa do HTML.
-// Evitamos o envio padrão, que recarregaria a página e colocaria dados na URL.
-conteudo.addEventListener('submit', evento => {
-    if (evento.target.id !== 'formulario-cadastro') return;
-    evento.preventDefault();
-    document.getElementById('feedback-cadastro').textContent =
-        'Demonstração: nenhum cadastro foi enviado ou salvo.';
 });

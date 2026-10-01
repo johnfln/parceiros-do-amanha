@@ -1,27 +1,27 @@
 // Os dados ficam separados da marcação do cartão.
-const projetos = [
+const projects = [
     {
-        "titulo": "Aprender e Descobrir",
-        "descricao": "Atividades que complementam a educação escolar, estimulam a curiosidade e aproximam as crianças de diferentes áreas do conhecimento.",
-        "atividades": [
+        "title": "Aprender e Descobrir",
+        "description": "Atividades que complementam a educação escolar, estimulam a curiosidade e aproximam as crianças de diferentes áreas do conhecimento.",
+        "activities": [
             "Leitura e acompanhamento de tarefas escolares.",
             "Oficinas de arte, música, ciência e tecnologia.",
             "Jogos educativos e atividades criativas."
         ]
     },
     {
-        "titulo": "Brincar e Conviver",
-        "descricao": "Momentos de recreação que valorizam a infância, incentivam a cooperação e fortalecem a convivência.",
-        "atividades": [
+        "title": "Brincar e Conviver",
+        "description": "Momentos de recreação que valorizam a infância, incentivam a cooperação e fortalecem a convivência.",
+        "activities": [
             "Brincadeiras e atividades ao ar livre.",
             "Esportes e jogos cooperativos.",
             "Dinâmicas de expressão e trabalho em grupo."
         ]
     },
     {
-        "titulo": "Famílias Apoiadas",
-        "descricao": "Apoio aos pais e responsáveis para ampliar suas oportunidades e fortalecer o ambiente familiar.",
-        "atividades": [
+        "title": "Famílias Apoiadas",
+        "description": "Apoio aos pais e responsáveis para ampliar suas oportunidades e fortalecer o ambiente familiar.",
+        "activities": [
             "Cursos de desenvolvimento profissional.",
             "Orientação para currículos e entrevistas.",
             "Apoio psicológico com profissionais habilitados."
@@ -30,21 +30,26 @@ const projetos = [
 ];
 
 // A mesma função gera um cartão para cada objeto do array.
-function criarCartaoProjeto(projeto) {
+function createProjectCard(project) {
+    const activityItems = project.activities.map(function (activity) {
+        return `<li>${activity}</li>`;
+    });
+    const activitiesHtml = activityItems.join('');
+
     return `
         <article>
-            <h3>${projeto.titulo}</h3>
-            <p>${projeto.descricao}</p>
+            <h3>${project.title}</h3>
+            <p>${project.description}</p>
             <ul>
-                ${projeto.atividades.map(atividade => `<li>${atividade}</li>`).join('')}
+                ${activitiesHtml}
             </ul>
-            <a href="#cadastro" aria-label="Participar do ${projeto.titulo}">Quero participar</a>
+            <a href="#cadastro" aria-label="Participar do ${project.title}">Quero participar</a>
         </article>
     `;
 }
 
 // Cada função retorna o HTML que será colocado dentro do <main>.
-export function criarTelaInicio() {
+export function createHomeScreen() {
     return `<h1>Conheça a Parceiros do Amanhã</h1>
 
     <section>
@@ -118,7 +123,10 @@ export function criarTelaInicio() {
     </section>`;
 }
 
-export function criarTelaProjetos() {
+export function createProjectsScreen() {
+    const projectCards = projects.map(createProjectCard);
+    const projectsHtml = projectCards.join('');
+
     return `<h1>Nossos projetos e formas de contribuir</h1>
 
         <p>
@@ -129,7 +137,7 @@ export function criarTelaProjetos() {
 
         <section id="projetos">
             <h2>Projetos para crianças e famílias</h2>
-            ${projetos.map(criarCartaoProjeto).join('')}
+            ${projectsHtml}
 
             
 
@@ -204,7 +212,7 @@ export function criarTelaProjetos() {
         </section>`;
 }
 
-export function criarTelaCadastro() {
+export function createRegistrationScreen() {
     return `<h1>Cadastro de interesse em voluntariado</h1>
 
         <p>
@@ -236,7 +244,7 @@ export function criarTelaCadastro() {
     </button>
 </dialog>
 
-        <form id="formulario-cadastro">
+        <form id="formulario-cadastro" novalidate>
             <fieldset>
                 <legend>Dados pessoais</legend>
 
@@ -350,7 +358,8 @@ export function criarTelaCadastro() {
                         id="endereco"
                         name="endereco"
                         required
-                    >
+                     aria-describedby="erro-endereco">
+                    <span id="erro-endereco" class="mensagem-erro" role="alert"></span>
                 </p>
 
                 <p>
@@ -375,7 +384,8 @@ export function criarTelaCadastro() {
                         type="text"
                         id="complemento"
                         name="complemento"
-                    >
+                     aria-describedby="erro-complemento">
+                    <span id="erro-complemento" class="mensagem-erro" role="alert"></span>
                 </p>
 
                 <p>
@@ -500,12 +510,13 @@ export function criarTelaCadastro() {
                         Habilidades e experiências (opcional)
                     </label><br>
                     <textarea
-                        id="habilidades"
+                        id="habilidades" aria-describedby="erro-habilidades"
                         name="habilidades"
                         rows="4"
                         cols="30"
                         maxlength="1000"
                     ></textarea>
+                    <span id="erro-habilidades" class="mensagem-erro" role="alert"></span>
                 </p>
             </fieldset>
 

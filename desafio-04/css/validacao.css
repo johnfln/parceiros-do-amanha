@@ -1,0 +1,19 @@
+#formulario-cadastro .campo-invalido {
+    border: 2px solid var(--laranja);
+    outline-color: var(--laranja);
+}
+
+#formulario-cadastro .campo-valido {
+    border: 2px solid var(--verde);
+    outline-color: var(--verde);
+}
+
+#formulario-cadastro .mensagem-erro:not(.visivel) {
+    display: none;
+}
+
+#formulario-cadastro .mensagem-erro.visivel {
+    display: block;
+    border: 0;
+    border-left: 3px solid var(--laranja);
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "arquivo": "JavaScript (main.js + módulos)",
+    "originalBytes": 32346,
+    "producaoBytes": 26134,
+    "reducaoPercentual": 19.2
+  },
+  {
+    "arquivo": "css/acessibilidade.css",
+    "originalBytes": 3893,
+    "producaoBytes": 2875,
+    "reducaoPercentual": 26.15
+  },
+  {
+    "arquivo": "css/cadastro.css",
+    "originalBytes": 5971,
+    "producaoBytes": 4469,
+    "reducaoPercentual": 25.15
+  },
+  {
+    "arquivo": "css/index.css",
+    "originalBytes": 4635,
+    "producaoBytes": 3426,
+    "reducaoPercentual": 26.08
+  },
+  {
+    "arquivo": "css/projetos.css",
+    "originalBytes": 5244,
+    "producaoBytes": 3869,
+    "reducaoPercentual": 26.22
+  },
+  {
+    "arquivo": "css/validacao.css",
+    "originalBytes": 423,
+    "producaoBytes": 358,
+    "reducaoPercentual": 15.37
+  },
+  {
+    "arquivo": "html/index.html",
+    "originalBytes": 2278,
+    "producaoBytes": 1799,
+    "reducaoPercentual": 21.03
+  },
+  {
+    "arquivo": "TOTAL HTML + CSS + JS",
+    "originalBytes": 54790,
+    "producaoBytes": 42930,
+    "reducaoPercentual": 21.65
+  }
+]

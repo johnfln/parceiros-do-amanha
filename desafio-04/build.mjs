@@ -113,5 +113,19 @@ await writeFile(
     JSON.stringify(results, null, 2)
 );
 
+await writeFile(
+    join(output, 'index.html'),
+    `<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0; url=html/index.html">
+    <title>Parceiros do Amanhã</title>
+</head>
+<body>
+    <a href="html/index.html">Acessar Parceiros do Amanhã</a>
+</body>
+</html>`
+);
 console.table(results);
 console.log('Build pronta! Abra dist/html/index.html com Live Server.');
